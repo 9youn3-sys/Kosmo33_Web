@@ -9,10 +9,10 @@
 <body>
 	<h1>Country Detail Page</h1>
 	
-	<h4>${dto.departmentId}</h4>
-	<h4>${dto.departmentName}</h4>
-	<h4>${dto.managerId}</h4>
-	<h4>${dto.locationId}</h4>
+	<h4>${dto.countrtyId}</h4>
+	<h4>${dto.counrtyName}</h4>
+	<h4>${dto.regionId}</h4>
+	
 	
 </body>
 </html>
