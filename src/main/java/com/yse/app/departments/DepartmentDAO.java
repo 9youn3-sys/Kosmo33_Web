@@ -9,13 +9,59 @@ import com.yse.app.util.DBConnection;
 
 
 	
-	public class DepartmentDAO {
+	public class DepartmentDAO {//정보를 가져오는 클래스
 		private DBConnection connection;
 		
 		
 		
 		public DepartmentDAO() {
 			this.connection = new DBConnection();
+		}
+		
+		public int update(DepartmentDTO departmentDTO) throws Exception{
+			Connection con = connection.getConnection();
+			String sql="""
+					UPDATE DEPARTMENTS
+					SET 
+						DEPARTMENT_NAME=?,
+						MANAGER_ID=?,
+						LOCATION_ID=?
+					WHERE DEPARTMENT_ID=?	
+					
+					""";
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, departmentDTO.getDepartmentName());
+			st.setInt(2, departmentDTO.getManagerId());
+			st.setInt(3, departmentDTO.getLocationId());
+			st.setInt(4, departmentDTO.getDepartmentId());
+			
+			int result = st.executeUpdate();
+			
+			st.close();
+			con.close();
+			
+			return result;
+			
+		}
+		
+		public int delete(DepartmentDTO departmentDTO) throws Exception {
+			Connection con = connection.getConnection();
+			
+			String sql= "DELETE DEPARTMENTS WHERE DEPARTMENT_ID=?";
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setInt(1, departmentDTO.getDepartmentId());
+			
+			int result = st.executeUpdate();
+			
+			st.close();
+			con.close();
+			
+			return result;
+			
 		}
 		
 		
@@ -72,6 +118,7 @@ import com.yse.app.util.DBConnection;
 		DepartmentDTO dto=null;
 		if(rs.next()) {
 			dto = new DepartmentDTO();
+			//dto사용을 위한 객체 생성 
 			
 			
 			dto.setDepartmentId(rs.getInt("DEPARTMENT_ID"));
@@ -79,7 +126,7 @@ import com.yse.app.util.DBConnection;
 			
 			dto.setManagerId(rs.getInt("MANAGER_ID"));
 			dto.setLocationId(rs.getInt("LOCATION_ID"));
-			
+			//정보를 가져오고 넣는것을 한번에 하는 문장 
 		}
 		
 		rs.close();
@@ -117,11 +164,13 @@ import com.yse.app.util.DBConnection;
 			int id= rs.getInt("DEPARTMENT_ID");
 			int mid = rs.getInt("MANAGER_ID");
 			int lid = rs.getInt("LOCATION_ID");
+			//정보를 가져오는 
 			
 			dto.setDepartmentName(name);
 			dto.setDepartmentId(id);
 			dto.setManagerId(mid);
 			dto.setLocationId(lid);
+			//정보를 넣는 
 			
 			ar.add(dto);
 			

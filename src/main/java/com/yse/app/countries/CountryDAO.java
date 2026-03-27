@@ -67,8 +67,13 @@ public class CountryDAO {
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
-			String name = rs.getString("COUNTRY_NAME");
-			System.out.println(name);
+			
+			CountryDTO dto = new CountryDTO();
+			
+			dto.setCountryId
+			
+			
+			
 		}else {
 			System.out.println("없다");
 		}
@@ -98,6 +103,10 @@ public class CountryDAO {
 			String name = rs.getString("COUNTRY_NAME");
 			String id = rs.getString("COUNTRY_ID");
 			int ri = rs.getInt("REGION_ID");
+			
+			dto.setCountryName(name);
+			dto.setCountryId(id);
+			dto.setRegionId(ri);
 			
 			ar.add(dto);
 			

@@ -28,11 +28,13 @@
 				<c:forEach items="${list}" var="c">
 					<tr>
 						<td>${c.countryId}</td>
-						<td><a href="/country/detail?countryId=${c.countryId}">${c.countryName}</a>></td>
+						<td><a href="/country/detail?countryId=${c.countryId}">${c.countryName}</a></td>
+						
 						<!-- 
 						./ 현재위치에서 가라  ../한단계 위로 가서 /dept/detail = 절대 경로 ./detail 로 쓰면 현재 위치의
 						
 						-->
+						
 						<!-- 부서명 클릭하면 디테일 화면으로 이동하게 끔 주소 넣어줌 -->
 					</tr>
 					<!-- 
