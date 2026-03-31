@@ -24,9 +24,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="d">
+				<c:forEach items="${requestScope.list}" var="d">
 					<tr>
-						<td>${d.departmentId}</td>
+						<td>${pageScope.d.departmentId}</td>
 						<td><a href="/dept/detail?departmentId=${d.departmentId}">${d.departmentName}</a></td>
 						<!-- 
 						./ 현재위치에서 가라  ../한단계 위로 가서 /dept/detail = 절대 경로 ./detail 로 쓰면 현재 위치의
