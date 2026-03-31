@@ -5,12 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.nav {
+    background-color: #fdede7;
+    padding: 20px;
+}
+
+.nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
 	<h3>글 리스트</h3>
 	
-	<div>
+	<div class="nav">
 		<a href="/comm/create">글 등록</a>
 	</div>
 	
