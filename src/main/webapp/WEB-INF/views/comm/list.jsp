@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,22 @@
 							
 			</thead>
 			
+			<tbody>
+		<c:forEach items= "${list}" var="d">
+		<tr>
+			<td>${pageScope.d.num}</td>
+			<td><a href="/comm/detail?num=${d.num}"${d.title}></a></td>
+			<td>${d.num}</td>
+			<td>${d.title}</td>
+			<td>${d.name}</td>
+			<td>${d.contents}</td>
+			<td>${d.createTime}</td>
+			<td>${d.star}</td>
+			
+		</tr>
+		
+		</c:forEach>
+	</tbody>
 		</table>
 	</div>
 	
